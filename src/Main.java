@@ -44,6 +44,7 @@ public class Main {
 volk.driveStart(zil);
 driver<car> lev = new driver<>("Levchenko", 'A', 10);
 lev.driveStart(delorian);
+        System.out.println("sdelal dz");
 
 
     }
