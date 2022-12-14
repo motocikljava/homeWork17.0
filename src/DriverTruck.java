@@ -1,24 +1,24 @@
-
-public class driver <A extends transport>{
+public class DriverTruck<B extends Truck> {
     String driverSecName;
-    char category;
+    final char CATEGORY = 'B';
     int experience;
 
-    public driver(String driverSecName, char category, int experience) {
+    public DriverTruck(String driverSecName, final char CATEGORY, int experience) {
         if (driverSecName != null) {
             this.driverSecName = driverSecName;
         }
-        if (category != 0) {
-            this.category = category;
+        if (CATEGORY != 'B') {
+            throw new NullPointerException("Введена неверная категория");
         }
+
         if (experience != 0) {
             this.experience = experience;
         }
 
     }
 
-    public void driveStart(A transport) {
-        System.out.println("водитель " + getDriverSecName() + " управляет автомобилем "
+    public void driveStart(B transport) {
+        System.out.println("водитель " + getDriverSecName() + " управляет грузовиком "
                 + transport.getMark() + " и будет участвовать в заезде");
     }
 
@@ -36,14 +36,6 @@ public class driver <A extends transport>{
         this.driverSecName = driverSecName;
     }
 
-    public char getCategory() {
-        return category;
-    }
-
-    public void setCategory(char category) {
-        this.category = category;
-    }
-
     public int getExperience() {
         return experience;
     }
@@ -52,3 +44,4 @@ public class driver <A extends transport>{
         this.experience = experience;
     }
 }
+

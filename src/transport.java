@@ -51,6 +51,7 @@ public abstract class transport {
     public abstract void Start();
 
     public abstract void End();
+    public abstract void Type();
     public static void seprator(){
         System.out.println("=========================================================");
     }
