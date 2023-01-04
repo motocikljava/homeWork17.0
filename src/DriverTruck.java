@@ -1,7 +1,10 @@
+import java.util.List;
+
 public class DriverTruck<B extends Truck> {
     String driverSecName;
     final char CATEGORY = 'B';
     int experience;
+    private static List<DriverTruck> driverTrucks;
 
     public DriverTruck(String driverSecName, final char CATEGORY, int experience) {
         if (driverSecName != null) {

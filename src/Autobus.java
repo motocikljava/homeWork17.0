@@ -1,8 +1,13 @@
+import java.util.ArrayList;
+import java.util.List;
+
 public class Autobus extends transport implements Competing {
     private Capacity capacity;
+    public static List<DriverAutobus> driverAutobuses = new ArrayList<>();
     public Autobus(String mark, String model, double engineVolume, Capacity capacity) {
         super(mark, model, engineVolume);
         this.capacity=capacity;
+
     }
 
     public Capacity getCapacity() {
@@ -11,6 +16,9 @@ public class Autobus extends transport implements Competing {
 
     public void setCapacity(Capacity capacity) {
         this.capacity = capacity;
+    }
+    public void addDriver(DriverAutobus driver) {
+        driverAutobuses.add(driver);
     }
 
     @Override
@@ -30,6 +38,21 @@ public class Autobus extends transport implements Competing {
                 System.out.println("Вместительность от: " + capacity.getTo() + "до : " + capacity.getFrom());
             }
         }
+
+    @Override
+    public boolean diagostika() {
+        System.out.println(getMark() +" диагностика не требуется");
+        return true;
+    }
+
+    @Override
+    public void fixed() {
+        if (diagostika() == true) {
+            System.out.println("ремонт не требуется");
+        } else {
+            System.out.println("транспортное средство " + getMark() + " отремонтировано");
+        }
+    }
 
 
     public void pitStop() {

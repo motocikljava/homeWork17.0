@@ -1,3 +1,5 @@
+import java.util.List;
+
 public class Main {
     public static void main(String[] args) {
         Car lada = new Car("Lada", "Vesta cross", 2.8, TypeKuzov.SEDAN);
@@ -41,16 +43,57 @@ public class Main {
         kamaz.bestLapTime("2:24");
         transport.seprator();
 
+        List<transport> transports = List.of(delorian,porshe,zil,man,volvo,mersedes);
+        Mechanic<transport> pin = new Mechanic<>("Pin","Smesharikov","Smeshariki&co");
+        Mechanic<Truck> krosh = new Mechanic<>("Krosh","Smesharikov","Smeshariki&co");
+        Mechanic<Car> losyash = new Mechanic<>("Losyash","Smesharikov","Smeshariki&co");
+        Sponsor<transport> smeshar= new Sponsor<>("Smeshariki&co", 2000);
+        Sponsor<transport> scrooge= new Sponsor<>("UtinieHistory", 1500);
+
+        man.addDriver(new DriverTruck<>("Volkov", 'B', 12));
+        man.addMechanic(krosh);
+        man.addSponsor(scrooge);
+        zil.addDriver(new DriverTruck<>("Koshkin", 'B', 9));
+        zil.addMechanic(pin);
+        zil.addSponsor(smeshar);
+        delorian.addDriver(new DriverCar<>("Doktorov", 'A', 10));
+        delorian.addMechanic(losyash);
+        delorian.addSponsor(scrooge);
+        porshe.addDriver(new DriverCar<>("Ferdinandov", 'A', 15));
+        porshe.addMechanic(losyash);
+        porshe.addSponsor(smeshar);
+        volvo.addDriver(new DriverAutobus<>("Lowertunel", 'C', 2));
+        volvo.addMechanic(pin);
+        volvo.addSponsor(smeshar);
+        mersedes.addDriver(new DriverAutobus<>("Starikov", 'C', 13));
+        mersedes.addMechanic(pin);
+        mersedes.addSponsor(scrooge);
+
 
 DriverCar<Car> lev = new DriverCar<>("Levchenko", 'A', 10);
 lev.driveStart(lada);
 DriverTruck<Truck> volk = new DriverTruck<>("Volkov", 'B', 12);
-
 volk.driveStart(zil);
 DriverAutobus<Autobus> low = new DriverAutobus<>("Lowertunel", 'C', 2);
 low.driveStart(volvo);
-belaz.Type();
 
+
+diagnostika(delorian, lada, porshe, mersedes,kamaz,belaz);
+    }
+    public static void diagnostika (transport... cars) {
+        for (transport transports : cars) {
+            if (!transports.diagostika()) {
+                try {
+                    throw new RuntimeException(" Автомобиль не прошёл диагностику " + transports.getMark());
+                } catch (RuntimeException e) {
+                    System.out.println(e.getMessage());
+                }
+
+            } else {
+                System.out.println("Автомобиль прошёл диагностику " + transports.getMark());
+            }
+        }
 
     }
+
 }

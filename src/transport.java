@@ -1,7 +1,13 @@
+import java.sql.Driver;
+import java.util.ArrayList;
+import java.util.List;
+
 public abstract class transport {
     protected String mark;
     protected String model;
      double engineVolume;
+     private final List<Mechanic> mechanics = new ArrayList<>();
+     private final List<Sponsor> sponsors = new ArrayList<>();
 
     public transport(String mark, String model, double engineVolume) {
         if (mark != null) {
@@ -19,6 +25,12 @@ public abstract class transport {
             this.engineVolume = engineVolume;
 
         }
+    }
+    public void addSponsor(Sponsor sponsor) {
+        sponsors.add(sponsor);
+    }
+    public void addMechanic(Mechanic mechanic) {
+        mechanics.add(mechanic);
     }
 
     public String getMark() {
@@ -52,6 +64,9 @@ public abstract class transport {
 
     public abstract void End();
     public abstract void Type();
+    public abstract boolean diagostika();
+    public abstract void fixed();
+
     public static void seprator(){
         System.out.println("=========================================================");
     }

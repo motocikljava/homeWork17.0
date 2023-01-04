@@ -1,15 +1,17 @@
+import java.util.List;
 
 public class DriverCar<A extends Car>{
     private String driverSecName;
     final char category = 'A';
     private  int experience;
 
+
     public DriverCar(String driverSecName, final char CATEGORY , int experience) {
         if (driverSecName != null) {
             this.driverSecName = driverSecName;
         }
         if (CATEGORY != 'A') {
-            throw new NullPointerException("Введена неверная категория");
+            throw new IllegalArgumentException("Введена неверная категория");
         }
 
         if (experience != 0) {
