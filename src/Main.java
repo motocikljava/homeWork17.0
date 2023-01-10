@@ -1,4 +1,6 @@
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 
 public class Main {
     public static void main(String[] args) {
@@ -43,7 +45,7 @@ public class Main {
         kamaz.bestLapTime("2:24");
         transport.seprator();
 
-        List<transport> transports = List.of(delorian,porshe,zil,man,volvo,mersedes);
+        Set<transport> transports = Set.of(delorian,porshe,zil,man,volvo,mersedes);
         Mechanic<transport> pin = new Mechanic<>("Pin","Smesharikov","Smeshariki&co");
         Mechanic<Truck> krosh = new Mechanic<>("Krosh","Smesharikov","Smeshariki&co");
         Mechanic<Car> losyash = new Mechanic<>("Losyash","Smesharikov","Smeshariki&co");
@@ -70,12 +72,17 @@ public class Main {
         mersedes.addSponsor(scrooge);
 
 
+
+
+
 DriverCar<Car> lev = new DriverCar<>("Levchenko", 'A', 10);
 lev.driveStart(lada);
 DriverTruck<Truck> volk = new DriverTruck<>("Volkov", 'B', 12);
 volk.driveStart(zil);
 DriverAutobus<Autobus> low = new DriverAutobus<>("Lowertunel", 'C', 2);
 low.driveStart(volvo);
+
+
 
 
 diagnostika(delorian, lada, porshe, mersedes,kamaz,belaz);
@@ -95,5 +102,6 @@ diagnostika(delorian, lada, porshe, mersedes,kamaz,belaz);
         }
 
     }
+
 
 }

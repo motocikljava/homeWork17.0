@@ -17,13 +17,7 @@ public class Sponsor <S extends transport>{
         return cash;
     }
 
-    public void payCash() {
-        int min = 100000;
-        int max = 100000;
-        int itog = max - 3*min;
-        Random random = new Random();
-        cash = random.nextInt(itog + min / 2) + max / 6;
-    }
+
 
     @Override
     public String toString() {

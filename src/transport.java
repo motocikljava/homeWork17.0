@@ -1,13 +1,15 @@
 import java.sql.Driver;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 public abstract class transport {
     protected String mark;
     protected String model;
      double engineVolume;
-     private final List<Mechanic> mechanics = new ArrayList<>();
-     private final List<Sponsor> sponsors = new ArrayList<>();
+     private final Set<Mechanic> mechanics = new HashSet<>();
+     private final Set<Sponsor> sponsors = new HashSet<>();
 
     public transport(String mark, String model, double engineVolume) {
         if (mark != null) {
