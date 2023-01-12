@@ -5,11 +5,13 @@ import java.util.List;
 import java.util.Set;
 
 public abstract class transport {
+
     protected String mark;
     protected String model;
      double engineVolume;
-     private final Set<Mechanic> mechanics = new HashSet<>();
-     private final Set<Sponsor> sponsors = new HashSet<>();
+     private final ArrayList<Mechanic> mechanics = new ArrayList<>();
+     private final ArrayList<Sponsor> sponsors = new ArrayList<>();
+
 
     public transport(String mark, String model, double engineVolume) {
         if (mark != null) {

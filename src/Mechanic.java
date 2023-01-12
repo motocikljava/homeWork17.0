@@ -4,9 +4,21 @@ public class Mechanic <M extends transport>{
     protected String mecName;
     protected String mecSurname;
     protected String company;
+
+
+
     private static Map<Mechanic, Set<transport>> serviceMachin = new HashMap<>();
 
-
+    public static String getServiceMachin() {
+        StringBuilder builder = new StringBuilder();
+        for (Map.Entry<Mechanic, Set<transport>> mechanicSetEntry : serviceMachin.entrySet()) {
+            builder.append(mechanicSetEntry.getKey().getMecName()).append("-->");
+            for (transport value : mechanicSetEntry.getValue()) {
+                builder.append(value.getModel());
+            }
+        }
+        return builder.toString();
+    }
     public Mechanic(String mecName, String mecSurname, String company) {
         this.mecName = mecName;
         this.mecSurname = mecSurname;

@@ -1,6 +1,4 @@
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 public class Main {
     public static void main(String[] args) {
@@ -44,8 +42,7 @@ public class Main {
         kamaz.maxSpeed("290 км/ч");
         kamaz.bestLapTime("2:24");
         transport.seprator();
-
-        Set<transport> transports = Set.of(delorian,porshe,zil,man,volvo,mersedes);
+        List<transport> transports = List.of(delorian,porshe,zil,man,volvo,mersedes);
         Mechanic<transport> pin = new Mechanic<>("Pin","Smesharikov","Smeshariki&co");
         Mechanic<Truck> krosh = new Mechanic<>("Krosh","Smesharikov","Smeshariki&co");
         Mechanic<Car> losyash = new Mechanic<>("Losyash","Smesharikov","Smeshariki&co");
@@ -75,7 +72,7 @@ public class Main {
 
 
 
-DriverCar<Car> lev = new DriverCar<>("Levchenko", 'A', 10);
+        DriverCar<Car> lev = new DriverCar<>("Levchenko", 'A', 10);
 lev.driveStart(lada);
 DriverTruck<Truck> volk = new DriverTruck<>("Volkov", 'B', 12);
 volk.driveStart(zil);
@@ -83,7 +80,9 @@ DriverAutobus<Autobus> low = new DriverAutobus<>("Lowertunel", 'C', 2);
 low.driveStart(volvo);
 
 
-
+        Mechanic<transport> pin1 = new Mechanic<>("Pin","Smesharikov","Smeshariki&co");
+        zil.addMechanic(pin1);
+        System.out.println(Mechanic.getServiceMachin());
 
 diagnostika(delorian, lada, porshe, mersedes,kamaz,belaz);
     }
