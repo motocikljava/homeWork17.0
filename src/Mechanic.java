@@ -4,8 +4,7 @@ public class Mechanic <M extends transport>{
     protected String mecName;
     protected String mecSurname;
     protected String company;
-
-
+    //вот тут мап
 
     private static Map<Mechanic, Set<transport>> serviceMachin = new HashMap<>();
 
